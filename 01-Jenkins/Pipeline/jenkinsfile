@@ -3,7 +3,7 @@ node {
  notify('Job Started') 
      
   stage('Git-Checkout') {
-   git 'https://github.com/Aaditigupta/appa.git'
+   git 'https://github.com/varnitasur/microservice2.git'
   }
  def project_path="01-Jenkins/Code/petclinic"
  
@@ -51,7 +51,7 @@ notify('Job Completed')
 
 def notify(status){
     emailext (
-	to: "amitvashist7@gmail.com",
+	to: "varnitasur@gmail.com",
 	subject: "${status}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
 	 body: """<p>${status}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
 	<p>Check console output at <a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a></p>""",
