@@ -1,3 +1,3 @@
 FROM tomcat:8.0
-MAINTAINER Aditi
+MAINTAINER Varnita
 COPY target/petclinic.war /usr/local/tomcat/webapps/
