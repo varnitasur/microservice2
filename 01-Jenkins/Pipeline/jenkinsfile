@@ -8,7 +8,7 @@ node {
  def project_path="01-Jenkins/Code/petclinic"
  
  dir(project_path) {
- 
+    
      stage('Sonar Analysis'){
         withSonarQubeEnv('SonarQube'){
          sh 'mvn sonar:sonar'
@@ -39,7 +39,8 @@ stage('Jfrog Artifacory Upload') {
                     }"""
         server.upload(uploadSpec)
         }
- 
+      
+  }
 notify('Job Completed')   
 } catch (err) {
   notify("Error ${err}")
@@ -51,10 +52,9 @@ notify('Job Completed')
 
 def notify(status){
     emailext (
-	to: "varnitasur@gmail.com",
+	to: "amitvashist7@gmail.com",
 	subject: "${status}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
 	 body: """<p>${status}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
 	<p>Check console output at <a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a></p>""",
 		)
 	}
-
