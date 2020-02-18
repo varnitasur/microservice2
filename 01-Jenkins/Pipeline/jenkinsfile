@@ -45,8 +45,7 @@ stage('Jfrog Artifacory Upload') {
   stage ('Deploy approval'){
 	input "Deploy to production ?"
 	} 
- }
-      
+       
   }
 notify('Job Completed')   
 } catch (err) {
