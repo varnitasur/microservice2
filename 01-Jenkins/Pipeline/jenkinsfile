@@ -17,7 +17,7 @@ node {
     "files": [
     {
       "pattern": "petclinic/*.war",
-      "target": "/root/.jenkins/workspace/warstorage/"
+      "target": "/root/.jenkins/workspace/Capstone-microservice2_dev/01-Jenkins/Code/petclinic/"
       
     }
     ]
