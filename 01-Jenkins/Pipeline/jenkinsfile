@@ -6,7 +6,7 @@ node {
    git 'https://github.com/varnitasur/microservice2.git'
   }
     
- def project_path="quality-assurance"
+ def project_path="01-Jenkins/Code/petclinic"
  
  dir(project_path) {
 
