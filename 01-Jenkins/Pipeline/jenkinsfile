@@ -8,7 +8,7 @@ node {
  def project_path="01-Jenkins/Code/petclinic"
  
  dir(project_path) {
-
+    
   stage('Maven-Clean') {
    sh label: '', script: 'mvn clean'
   }
@@ -16,8 +16,7 @@ node {
  stage('Maven-Compile') {
    sh label: '', script: 'mvn compile'
   }
-   
-
+    
    stage('Maven-Test') {
    sh label: '', script: 'mvn test'
   }
@@ -34,17 +33,11 @@ stage('Jfrog Artifacory Upload') {
                     }"""
         server.upload(uploadSpec)
         }
- 
-  stage ('Deploy approval'){
-	input "Deploy to production ?"
-	} 
-       
-  }
-  stage('Docker-Stage-Deployment') {
+        
+ stage('Docker-Stage-Deployment') {
    sh label: '', script: 'docker-compose up -d --build'
+  } 
   }
-  
- 
 notify('Job Completed')   
 } catch (err) {
   notify("Error ${err}")
