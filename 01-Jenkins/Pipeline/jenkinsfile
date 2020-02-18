@@ -9,11 +9,6 @@ node {
  
  dir(project_path) {
     
-     stage('Sonar Analysis'){
-        withSonarQubeEnv('SonarQube'){
-         sh 'mvn sonar:sonar'
-        }  
- } 
   stage('Maven-Clean') {
    sh label: '', script: 'mvn clean'
   }
@@ -21,7 +16,11 @@ node {
  stage('Maven-Compile') {
    sh label: '', script: 'mvn compile'
   }
-   
+   stage('Sonar Analysis'){
+        withSonarQubeEnv('SonarQube'){
+         sh 'mvn sonar:sonar'
+        }  
+ } 
 
    stage('Maven-Test') {
    sh label: '', script: 'mvn test'
