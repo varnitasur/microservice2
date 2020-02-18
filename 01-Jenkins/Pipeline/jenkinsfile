@@ -3,13 +3,14 @@ node {
  notify('Job Started') 
  
  stage('Git-Checkout') {
-   git branch'https://github.com/varnitasur/microservice2.git'
+   git 'https://github.com/varnitasur/microservice2.git'
   }
-  
-  def project_path="01-Jenkins/Code/petclinic"
+    
+ def project_path="quality-assurance"
  
- dir(project_path)
- {
+ dir(project_path) {
+
+    
  stage('Jfrog Artifactory download'){
     def server= Artifactory.server 'Artifactory'
     def downloadSpec = """{
